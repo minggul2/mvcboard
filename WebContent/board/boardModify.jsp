@@ -9,9 +9,9 @@
 	int seq = Integer.parseInt(request.getParameter("seq"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
 sdasdsadad
-asdsads
-	BoardDAO boardDAO = BoardDAO.getInstance();
-	boardDAO.boardModify(subject, content, seq);
+asdsadsW
+	BoardDAO boardDAO = BoardDAO.asfeksjaefkls();
+	boardDAO.boardModify(subject, cawjdlkawjd, seq);
 %>
 
 <html>
