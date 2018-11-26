@@ -10,8 +10,8 @@
 	int pg = Integer.parseInt(request.getParameter("pg"));
 sdasdsadad
 asdsadsW
-	BoardDAO boardDAO = BoardDAO.asfeksjaefkls();
-	boardDAO.boardModify(subject, cawjdlkawjd, seq);
+	BoardDAO boardDAO = BoardDAO.asfㄴㅁㅇㅁㄴㅇsjaefkls();
+	boardDAO.boardModify(subject, 새로운코드, seq);
 %>
 
 <html>
