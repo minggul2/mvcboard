@@ -10,8 +10,13 @@
 	int pg = Integer.parseInt(request.getParameter("pg"));
 sdasdsadad
 asdsadsW
+<<<<<<< HEAD
 	BoardDAO boardDAO = BoardDAO.asfeksjaefkls();
 	boardDAO.boardModify(subject, cawjdlkㅁㄴㅇㄴㅁㅇawjd, seq);
+=======
+	BoardDAO boardDAO = BoardDAO.asfㄴㅁㅇㅁㄴㅇsjaefkls();
+	boardDAO.boardModify(subject, 새로운코드, seq);
+>>>>>>> refs/heads/test
 %>
 
 <html>
