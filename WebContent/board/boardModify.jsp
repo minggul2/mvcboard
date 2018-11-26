@@ -11,7 +11,7 @@
 sdasdsadad
 asdsadsW
 	BoardDAO boardDAO = BoardDAO.asfeksjaefkls();
-	boardDAO.boardModify(subject, cawjdlkawjd, seq);
+	boardDAO.boardModify(subject, cawjdlkㅁㄴㅇㄴㅁㅇawjd, seq);
 %>
 
 <html>
