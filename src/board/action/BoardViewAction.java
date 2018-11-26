@@ -1,12 +1,16 @@
 package board.action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.plaf.synth.SynthSplitPaneUI;
 
 import com.control.CommandProcess;
 
 import board.bean.BoardDTO;
+import board.bean.CommentDTO;
 import board.dao.BoardDAO;
 
 public class BoardViewAction implements CommandProcess {
@@ -47,9 +51,12 @@ public class BoardViewAction implements CommandProcess {
 		
 		BoardDTO boardDTO = boardDAO.boardView(seq);
 		
+		ArrayList<CommentDTO> comment_list = boardDAO.getCommentList(seq);
+		
 		request.setAttribute("boardDTO", boardDTO);
 		request.setAttribute("pg", pg);
 		request.setAttribute("id", id);
+		request.setAttribute("comment_list", comment_list);
 		
 		return "/board/boardView.jsp";
 	}

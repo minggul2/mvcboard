@@ -27,4 +27,10 @@ $(document).ready(function(){
 		
 		location.href = 'boardModifyForm.do?seq='+seq+'&pg='+pg;
 	});
+	
+	//댓글 등록 이벤트
+	$('#comment_write_button').click(function(){
+		$('#comment_form').submit();
+	});
+	
 });

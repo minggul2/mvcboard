@@ -8,11 +8,10 @@
 	String content = request.getParameter("content");
 	int seq = Integer.parseInt(request.getParameter("seq"));
 	int pg = Integer.parseInt(request.getParameter("pg"));
-
+sdasdsadad
+asdsads
 	BoardDAO boardDAO = BoardDAO.getInstance();
-	
 	boardDAO.boardModify(subject, content, seq);
-	
 %>
 
 <html>
@@ -20,6 +19,7 @@
 		window.onload=function(){
 			alert("수정 완료");
 			location.href="boardList.jsp?pg="+<%=pg%>;
+			asdsadasd;
 		}
 	</script>	
 </html>

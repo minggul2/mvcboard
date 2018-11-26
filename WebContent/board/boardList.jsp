@@ -33,17 +33,27 @@
 
 			<c:forEach var="boardDTO" items="${list}" varStatus = "i">
 				<tr>
-					<td class = "board">${boardDTO.seq}</td>
-					<td class = "board"><a href = "#" id = "view_aTag">${boardDTO.subject}</a></td>
+					<td class = "board">${boardDTO.seq}${boardDTO.lev}</td>
+					<!-- 답글 밀어내기 -->
+					<td class = "board">lev : ${boardDTO.lev}
+					
+						<c:forEach var = "lev" begin="0" end="${boardDTO.lev}">
+							&emsp;RE:	
+						</c:forEach>
+					&nbsp;<a href = "#" id = "view_aTag">${boardDTO.subject}</a></td>
 					<td class = "board">${boardDTO.id}</td>
 					<td class = "board">${boardDTO.logtime}</td>
 					<td class = "board">${boardDTO.hit}</td>
+					<td>lev : ${boardDTO.lev}</td>
+					<td>dddddddddddddd</td>
 					
 				</tr>
 			</c:forEach>
 		</c:if>
 	</table>
 	<br><br>
+	
+	
 	
 </div>
 

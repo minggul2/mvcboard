@@ -15,6 +15,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import board.bean.BoardDTO;
+import board.bean.CommentDTO;
 
 public class BoardDAO {
 public static BoardDAO instance;
@@ -228,6 +229,72 @@ public static BoardDAO instance;
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public ArrayList<CommentDTO> getCommentList(int seq){
+		ArrayList<CommentDTO> comment_list = new ArrayList<>();
+		
+		String sql = "select * from comment_table where ref = ? order by seq desc";
+		
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				CommentDTO commentDTO = new CommentDTO();
+				commentDTO.setId(rs.getString("id"));
+				commentDTO.setContent(rs.getString("content"));
+				commentDTO.setLogtime(rs.getString("logtime"));
+				commentDTO.setRef(rs.getInt("ref"));
+				commentDTO.setSeq(rs.getInt("seq"));
+				
+				comment_list.add(commentDTO);
+				System.out.println("Testsetstsetsetsets");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			comment_list = null;
+		} finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return comment_list;
+	}
+
+	public void writeComment(CommentDTO commentDTO) {
+		
+		String sql = "insert into comment_table values(comment_seq.nextval, ?, ?, ?, sysdate)";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, commentDTO.getId());
+			pstmt.setString(2, commentDTO.getContent());
+			pstmt.setInt(3, commentDTO.getRef());
+			
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 }
